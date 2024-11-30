@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+
+    .todo-grid,.todo-input-grid{
+
+      display: grid;
+      grid-template-columns:200px 150px 100px ;
+      column-gap: 10px;
+      row-gap: 10px;
+      
+    }
+.todo-input-grid{
+
+  margin-bottom:10px;
+  align-items: stretch;
+}
+
+.name-input,
+.due-date-input
+{
+  font-size: 15px;
+  padding:6px;
+
+}
+.add-todo-button
+{
+  background-color: green;
+  color:white;
+  border:none;
+  font-size: 15px;
+  cursor: pointer;
+}
+.delete-todo-button
+{
+  background-color: darkred;
+  color: white;
+  border:none;
+  font-size: 15px;
+  cursor: pointer;
+  padding:8px 28px;
+}
+  </style>
+</head>
+<body>
+  <p>Tod List Practice 1</p>
+
+  <div class="todo-input-grid">
+ <input placeholder="Todo name " class="js-name-input name-input">
+
+  <input type="date" class="js-due-date-input due-date-input" >
+  <button onclick="
+  
+  addTodo();
+  
+  " class="add-todo-button js-add-todo-button">Add</button>
+
+  </div>
+ 
+
+ <div class="js-todo-list todo-grid">
+  text
+ </div>
+
+  <script src="script/11-todo-list.js"></script>
+<!-- 9.42 -->
+
+</body>
+</html>

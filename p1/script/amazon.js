@@ -1,0 +1,6 @@
+
+const products=[
+  {
+    image:''
+  }
+]

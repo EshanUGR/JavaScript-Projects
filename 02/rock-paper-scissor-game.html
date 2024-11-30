@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor Game</title>
+
+    <style>
+body{
+  background-color:rgb(25,25,25);
+  color:white;
+  font-family:Arial;
+}
+
+.title{
+  font-size: 30px;
+  font-weight:bold;
+}
+
+
+    </style>
+  </head>
+  <body>
+    
+    <p class="title">Rock Paper Scissor Game</p>
+    <button  class="js-rock-button">Rock</button>
+    <button  class="js-paper-button">Paper</button>
+    <button  class="js-scissor-button">Scissor</button>
+    
+    <p class="final"></p>
+    <p class="output"></p>
+    <p class="js-score"></p>
+<button onclick="resetMark();">Reset Score</button>
+
+
+<button class="auto-play-button" onclick="
+
+autoPlay();
+
+">Auto Play </button>
+<button onclick="stopPlay()">Stop Auto Play</button>
+
+    <script>
+
+
+
+
+
+
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+      //USING parsw we convert json format to object
+
+      //   if(score==null)
+      // {
+      //   score={
+
+      //     wins:0,
+      //     losses:0,
+      //     ties:0
+      //   }
+      // }
+
+      let computr;
+      let result;
+      let intervalId;
+      let autoPlayer=false;
+
+      function computerPick() {
+        let num = Math.random();
+
+        if (num < 1 / 3) {
+          computer = "Rock";
+        } else if (num >= 1 / 3 && 2 / 3 > num) {
+          computer = "PAPER";
+        } else {
+          computer = "SCISSOR";
+        }
+      }
+
+       function autoPlay()
+      {
+
+        if(!autoPlayer)
+      {
+setInterval(()=>{
+          const num=Math.random();
+let player;
+           if (num < 1 / 3) {
+        player   = "PAPER";
+        } else if (num >= 1 / 3 && 2 / 3 > num) {
+          player = "Rock";
+        } else {
+          player = "SCISSOR";
+        }
+        
+generAnswer(player);
+
+        },3000)
+
+      }
+        
+
+          
+
+      }
+
+      function stopPlay()
+      {
+       
+
+//         setTimeout(function(){
+//  clearInterval(intervalId);
+//         },2000)
+autoPlay=true;
+      }
+
+
+// document.querySelector('.js-rock-button').addEventListener('click',()=>
+// {
+//   generAnswer('ROCK')
+// })
+// document.querySelector('.js-paper-button').addEventListener('click',()=>
+// {
+//   generAnswer('PAPER')
+// })
+// document.querySelector('.js-scissor-button').addEventListener('click',()=>
+// {
+//   generAnswer('SCISSOR')
+// })
+
+
+document.body.addEventListener('keydown',(event)=>
+{if(event.key==='r')
+{
+
+
+generAnswer("ROCK");
+
+
+
+}
+else if(event.key==='p')
+{
+
+generAnswer("PAPER");
+}
+else if(event.key==='s')
+{
+
+generAnswer("SCISSOR");
+
+}
+
+})
+
+
+      function generAnswer(para){
+        computerPick(); 
+
+        if (para === computer) {
+
+          result = "Tie";
+
+        } else if (para === "ROCK") {
+          if (computer === "PAPER") {
+            result = "Lose";
+          } else if (computer === "SCISSOR") {
+            result = "Win";
+          }
+        } else if (para === "PAPER") {
+          if (computer === "SCISSOR") {
+            result = "Lose";
+          } else if (computer === "ROCK") {
+            result = "Win";
+          }
+        } else {
+          if (computer === "ROCK") {
+            result = "Lose";
+          } else computer === "PAPER";
+          {
+            result = "Win";
+          }
+        }
+
+        if (result === "Win") {
+          score.wins += 1;
+        } else if (result == "Lose") {
+          score.losses += 1;
+        } else {
+
+          score.ties += 1;
+          
+        }
+        //localstrong only support string so we need to convert into string
+        localStorage.setItem("score", JSON.stringify(score));
+
+        // alert(`You picked: ${para} and computer picked: ${computer},Result: ${result}
+        // ,Wins: ${score.wins},Loses:${score.losses},Ties:${score.ties}`);
+
+        let final = document.querySelector(".final");
+
+        let output = document.querySelector(".output");
+
+        let score1 = document.querySelector(".js-score");
+
+      
+
+        final.innerHTML = `You:${result}`;
+        output.innerHTML = `You ${para}- Computer ${computer}`;
+
+        score1.innerHTML = `Wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`;
+
+
+      }
+
+      function resetMark() {
+        score.losses = 0;
+        score.wins = 0;
+        score.ties = 0;
+        localStorage.removeItem("score");
+if(score==null)
+{
+  console.log(score.wins)
+}
+let score2=document.querySelector(".js-score");
+        score2.innerHTML = `Wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`;
+      }
+
+
+     
+    </script>
+  </body>
+</html>
+
+<!-- 5.9 -->

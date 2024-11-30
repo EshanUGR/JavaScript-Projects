@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <style>
+      body {
+        font-family: Arial;
+      }
+      button {
+      }
+
+      .todo-grid,.todo-input-grid {
+        display: grid;
+        grid-template-columns: 200px 150px 100px;
+        column-gap:10px;
+        row-gap:10px;
+align-items: center;
+      }
+
+      .todo-input-grid{
+
+        margin-bottom:10px;
+        align-items: stretch;
+      }
+      .name-input,.due-date-input{
+
+        font-size:15px;
+        padding:6px;
+
+      }
+      .add-todo-button{
+
+        background-color: green;
+        color:white;
+font-size:15px;
+        border: none;
+cursor: pointer;
+
+      }
+      .delete-todo-button{
+        background-color: darkred;
+        color:white;
+        border: none;
+        font-size:15px;
+        cursor: pointer;
+        padding:10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div  class="todo-input-grid">
+      <input type="text" class="js-input name-input" placeholder="Todo name" />
+
+      <input type="date" class="js-due-date due-date-input" />
+      <button  class="add-todo-button js-add-todo-button">Add Todo</button>
+
+      <div class="js-todo-list todo-grid">text</div>
+    </div>
+
+    <script>
+      const todoList = [
+        {
+          name: "make dinner",
+          dueDate: "2022-12-22",
+        },
+        { name: "wash dishes", dueDate: "2022-1-2" },
+      ];
+      randomTodo();
+      function randomTodo() {
+        let todoListHTML = "";
+
+        todoList.forEach((todoObject,index)=>
+      {
+   
+         
+
+          const { name, dueDate } = todoObject;
+
+          const html = `
+<div>
+  
+   ${name} 
+  </div>
+  <div>
+  
+  ${dueDate}
+  </div> 
+<button 
+   class="delete-todo-button js-todo-delete">
+Delete
+    </button>
+  
+  
+  
+  
+  `;
+          todoListHTML += html;
+        }
+
+      );
+
+     
+        document.querySelector(".js-todo-list").innerHTML = todoListHTML;
+
+
+
+document.querySelectorAll(".js-todo-delete").forEach((deleteBtn,index)=>
+{
+  deleteBtn.addEventListener('click',()=>
+{
+todoList.splice(index,1);
+  randomTodo();
+});
+})
+
+      }
+
+      document.querySelector(".js-add-todo-button").addEventListener('click',()=>
+      {
+addTodo();
+      }
+    
+    );
+
+      function addTodo() {
+        const inputElement = document.querySelector(".js-input");
+
+        const dateInputElement = document.querySelector(".js-due-date");
+
+        const name = inputElement.value;
+        const date = dateInputElement.value;
+
+        console.log(name);
+
+        todoList.push({
+          name: name,
+          dueDate: date,
+        });
+
+        inputElement.value = "";
+
+        randomTodo();
+      }
+    </script>
+  </body>
+</html>

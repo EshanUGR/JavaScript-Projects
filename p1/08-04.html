@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML</title>
+</head>
+<body>
+
+
+  <script>
+
+
+console.log('hello'.length)
+console.log('hello'.toUpperCase())
+
+const object1={
+  message:'hello'
+};
+
+const object2=object1;
+
+const object3={
+  message:'Good job!'
+};
+
+console.log(object3===object1);
+
+
+const object4={
+  message:'Good job!',
+  price:799
+};
+
+// const message=object4.message;
+const {message,price}=object4;
+
+console.log(message)
+
+console.log(price)
+
+const object5={
+  message,
+  method:function function1()
+  {
+    console.log('method');
+  }
+}
+
+console.log(object5);
+object5.method();
+  </script>
+</body>
+</html>

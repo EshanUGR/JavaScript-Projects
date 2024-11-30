@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo list</title>
+  <link rel="stylesheet" href="styles/11-todo.css"/>
+</head>
+<body>
+  <button onClick="" class="js-button">Click</button>
+
+
+<script>
+ 
+ const buttonElement=document.querySelector('.js-button');
+
+ const eventListener=()=>
+{
+  console.log('Clicked');
+}
+
+buttonElement.addEventListener('click',eventListener);
+
+buttonElement.removeEventListener('click',eventListener);
+
+
+
+
+buttonElement.addEventListener('click',()=>
+{
+  console.log('Click2');
+});
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

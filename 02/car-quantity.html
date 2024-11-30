@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+
+  <style>
+
+    button{
+      background-color: darkblue;
+      width:152px;
+      height: 100px;
+      vertical-align: top;
+      border-radius: 20px;
+      padding:12px 10px;
+      font-size: 25px;
+      color: white;
+    }
+    
+  </style>
+</head>
+<body>
+  
+<button onclick="showQuantity();">Show Quantity</button>
+<button onclick="addToCart(+1)">Add to Cart</button>
+<button onclick="addToCart(+2);">+2</button>
+<button onclick="addToCart(+3);">+3</button>
+<button onclick="addToCart(0);">Reset</button>
+
+
+<script>
+let calcultion=0;
+let result;
+let message;
+
+
+function showQuantity()
+
+{
+console.log(`Cart Quantity:${calcultion}`)
+
+
+}
+
+
+function addToCart(para)
+{
+  
+  if(para==`+2`)
+{
+calcultion+=2;
+
+  console.log(`Cart Quantity :${calcultion}`)
+
+
+}
+ else if(para==`+3`)
+{
+calcultion+=3;
+
+  console.log(`Cart Quantity :${calcultion}`)
+
+
+}
+else if(para=='+1'){
+
+calcultion+=1;
+
+  console.log(`Cart Quantity :${calcultion}`)
+}
+else{
+calcultion=0;
+console.log(`Cart was reset`);
+  console.log(`Cart Quantity :${calcultion}`)
+
+}
+
+}
+
+function showQuantity()
+{
+  console.log(`Cart Qunatity is :${calcultion}`)
+}
+
+
+// 2.23
+
+
+</script>
+</body>
+</html>

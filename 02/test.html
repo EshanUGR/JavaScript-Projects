@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Example</title>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;  /* Set the height */
+            width: 100%;    /* Set the width to fill the page */
+        }
+    </style>
+</head>
+<body>
+    <h3>My Google Maps Demo</h3>
+    <!-- The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Load the Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of New York City
+            const nyc = { lat: 40.7128, lng: -74.0060 };
+            // The map, centered at New York City
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: nyc,
+            });
+            // The marker, positioned at New York City
+            const marker = new google.maps.Marker({
+                position: nyc,
+                map: map,
+            });
+        }
+    </script>
+</body>
+</html>

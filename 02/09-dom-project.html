@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM PROJECT</title>
+<style>
+
+  .subscribe-button{
+
+    border:none;
+    background-color: black;
+    color:white;
+padding:10px 15px;
+border-radius: 50px;
+font-size: 14px;
+font-weight: bold;
+cursor: pointer;
+  }
+
+  .subscribe{
+    background-color:rgb(240,240,240);
+    color:black;
+  }
+</style>
+
+</head>
+<body>
+
+  <p>YOUTUBE Subscribe Button</p>
+
+  <button onclick="Subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button>
+<p class="thank">Subcribe the our channel!</p>
+
+
+
+
+
+  <script>
+
+    function Subscribe()
+    {
+
+
+      let subButton=document.querySelector('button');
+      let text=document.querySelector('.thank');
+
+     
+
+        if(subButton.innerHTML=="Subscribe")
+      {
+subButton.innerHTML="Subscribed";
+subButton.classList.add("subscribe");
+text.innerHTML="Thank you for subscribed our channel!"
+      }
+      else{
+subButton.innerHTML="Subscribe";
+subButton.classList.remove("subscribe");
+text.innerHTML="Subcribe the our channel!"
+
+      }
+
+
+      }
+
+      
+
+    
+
+
+
+
+
+    
+
+  </script>
+  
+</body>
+</html>
